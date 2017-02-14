@@ -1,0 +1,10 @@
+{
+    "PORT": 9999,
+    "MONGO":{
+        "replicas"      : ["localhost:27017"],
+        "port"          : 27017,
+        "database"      : "loginApp",
+        "username"      : "admin",
+        "password"      : "root"
+    }
+}
