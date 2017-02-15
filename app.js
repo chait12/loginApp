@@ -16,6 +16,11 @@ require('./models/users');
 
 var routes = require('./routes.js');
 
+// app.all('*', function(req, res, next){
+//   console.log(req.method, req.url);
+//   next();
+// });
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -30,6 +35,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes.index);
 app.use('/users', routes.users);
+
+app.all("*", function(req, res, next){
+    res.status(401).json({
+        error : "Unauthorized"
+    });
+    next();
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

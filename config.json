@@ -6,5 +6,7 @@
         "database"      : "loginApp",
         "username"      : "admin",
         "password"      : "root"
-    }
+    },
+    "salt_length": 10,
+    "ENCRYPTION_KEY": "7&a^-=vssC5uDZK66MG$a#TXPgbMyruWMan"
 }
