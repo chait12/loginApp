@@ -8,5 +8,6 @@
         "password"      : "root"
     },
     "salt_length": 10,
-    "ENCRYPTION_KEY": "7&a^-=vssC5uDZK66MG$a#TXPgbMyruWMan"
+    "ENCRYPTION_KEY": "7&a^-=vssC5uDZK66MG$a#TXPgbMyruWMan",
+    "admin_key": "qT5zQ3zK7Vr5rFQ#CGRbYM6QgSH&T3yq-^C"
 }

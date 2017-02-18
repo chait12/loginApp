@@ -6,7 +6,7 @@ var Promise     = require("bluebird");
 
 var UserSchema = new Schema({
     uid                 : { type : String },
-    email               : { type : String, unique: true },
+    email               : { type : String },
     first_name          : { type : String },
     last_name           : { type : String },
     password            : { type : String },
@@ -16,22 +16,19 @@ var UserSchema = new Schema({
 });
 
 function encryptPassword(password){
-    //console.log("pwd ", password);
     return new Promise(function(resolve, reject){
         return bcrypt.genSalt(config.salt_length, function(err, salt) {
-            //console.log("salt ", salt);
             if(err){
                 return reject(err);
             }
             bcrypt.hash(password, salt, function(err, hash) {
-                //console.log('hash ', hash);
                 return resolve(hash);
             });
         });
     });
 }
 
-UserSchema.pre('save', function(req, res, next){
+UserSchema.pre('save', function(next){
     var self = this;
     encryptPassword(self.password)
         .then(function(passwordHash){
